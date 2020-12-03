@@ -2,15 +2,15 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-    user: {type: Schema.Types.ObjectId, ref: 'User'},
-    userName: String,
-    userAvatar: String
+    name: String,
+    googleId: {
+        type: String,
+        required: true
+    }, 
+    email: String,
+    avatar: String
 }, {
     timestamps: true
 });
 
-const diarySchema = new Schema({
-
-}, {
-    timestamps: true
-});
+module.exports = mongoose.model('User', userSchema);
