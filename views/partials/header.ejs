@@ -13,12 +13,12 @@
   </head>
   <body>
       <nav>
-        <a href="/">&nbsp;HOME</a>
-        
+        <a href="/">&nbsp;HOME&nbsp;☕</a>
+        <% if(user) { %>
         <a href="/recipes/new">&nbsp;NEW DIARY ENTRY</a>
         <a href="/logout">LOG OUT</a>
-        
-        <a href="/auth/google" class="login">LOG IN</a>
-        
+       <% } else { %> 
+        <a href="/auth/google" class="login">LOG IN&nbsp;☕</a>
+       <% } %> 
       </nav>
       <main>
