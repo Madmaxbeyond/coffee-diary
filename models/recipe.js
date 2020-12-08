@@ -29,7 +29,10 @@ const noteSchema = new Schema({
 const recipeSchema = new Schema({
     user: {type: Schema.Types.ObjectId, ref: 'User'},
     userName: String,
-    title: String,
+    title: {
+        type: String,
+        default: 'New Coffee Recipe'
+    },
     waterType: String,
     waterTemp: Number,
     coffeeType: String,

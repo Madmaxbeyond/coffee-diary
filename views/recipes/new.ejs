@@ -1,11 +1,44 @@
 <%- include('../partials/header') %>
-<h1>Dear Coffee Diary, </h1>
+<h2>Dear Coffee Diary, </h2>
 
 <form id="new-form" action="/recipes" method="POST">
     <label>Title:</label>
     <input type="text" name="title">
 
-    <label></label>
+    <label>Water Type</label>
+    <input type="text" name="waterType">
+
+    <label>Water Temperature</label>
+    <input type="text" name="waterTemp">
+
+    <label>Coffee Type</label>
+    <input type="text" name="coffeeType">
+
+    <label>Coffee Brand</label>
+    <input type="text" name="coffeeBrand">
+
+    <label>Grind Type</label>
+    <input type="text" name="grindType">
+    
+    <label>Brew Time</label>
+    <input type="text" name="brewTime">
+    
+    <label>Brew Method</label>
+    <input type="text" name="brewType">
+    
+    <label>Rating</label>
+    <select name="rating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    
+    <label>Notes</label>
+    <input type="text" name="notes">
+
+    <input type="submit" value="Add Recipe">
 </form>
 
 <%- include('../partials/footer') %>
