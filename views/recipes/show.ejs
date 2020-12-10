@@ -1,6 +1,76 @@
 <%- include('../partials/header') %>
 
+<section id="show-page">
+    <div>Title: </div>
+    <div><%= recipe.title %></div>
+    <div>Water Type: </div>
+    <div><%= recipe.waterType %></div>
+    <div>Water Temp: </div>
+    <div><%= recipe.waterTemp %></div>
+    <div>Coffee Type:</div>
+    <div><%= recipe.coffeeType %></div>
+    <div>Coffee Brand:</div>
+    <div><%= recipe.coffeeBrand %></div>
+    <div>Grind Type:</div>
+    <div><%= recipe.grindType %></div>
+    <div>Brew Type:</div>
+    <div><%= recipe.brewType %></div>
+    <div>My Rating:</div>
+    <div><%= recipe.rating %></div>
+    <div>Notes:</div>
+    <div><%= recipe.notes %></div>
+</section>
+<br>
+<form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
+  <button class="btn waves-effect waves-light btn-small" type="submit" name="action">Delete Review</button>
+</form>
+<br>
+<a href="/recipes/<%= recipe._id %>/edit">Edit Recipe</a>
 
+<br><br>
 
+<h4>Reviews</h4>
+<% if (user) { %>
+    <form id="add-review-form" method="POST" action="/<%= recipe._id%>/reviews">
+      <label>Review:</label>
+      <textarea name="content"></textarea>
+      </select>
+      <br><br>
+      <button class="btn waves-effect waves-light btn-small" type="submit" name="action">Add Review</button>
+    </form>
+  <% } %>
+
+  <% if (recipe.reviews.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Date</th>
+          <th>Review</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <% recipe.reviews.forEach(function(rev) { %>
+          <tr>
+            <td class="review-user"><img id="avatar" src="<%= rev.userAvatar %>" alt="Avatar"><%= rev.userName %></td>
+            <br>
+            <td><%= rev.createdAt.toString().slice(0, 15) %></td>
+            <td><%= rev.content %></td>
+            <td>
+              <% if (user && user._id.equals(rev.user)) { %>
+                <form action="/reviews/<%= rev._id %>?_method=DELETE" method="POST">
+                  <button class="btn waves-effect waves-light btn-small" type="submit" name="action">Delete Review</button>
+                </form>
+              <% } %>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h5>Be the First to Leave a Review!</h5>
+  <% } %>  
 
 <%- include('../partials/footer') %>

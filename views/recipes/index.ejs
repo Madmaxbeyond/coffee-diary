@@ -1,4 +1,6 @@
 <%- include('../partials/header') %>
+
+<h2>My Recipes</h2>
 <table id="list">
     <thead>
         <tr>
@@ -14,7 +16,7 @@
                 <td><%= r.title %></td>
                 <td><%= r.brewType %></td>
                 <td><%= r.coffeeType %></td>
-                <td><a href="/recipes/<%= r._id %>">Details</a></td>
+                <td><a href="/recipes/<%= r._id %>">Brew Details</a></td>
             </tr>
         <% }); %>    
     </tbody>

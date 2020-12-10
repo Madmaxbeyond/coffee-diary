@@ -1,12 +1,13 @@
 const Recipe = require('../models/recipe');
+const recipes = require('./recipes');
 
 module.exports = {
     create,
-    delete: deleteRecipe
-};
+    delete: deleteReview
+}
 
 function create(req, res) {
-    Recipe.findById(req.params.id, function(err, recipe) {
+    Recipe.findById(req.params.recipeId, function(err, recipe) {
         req.body.user = req.user._id;
         req.body.userName = req.user.name;
         req.body.userAvatar = req.user.avatar;
@@ -18,15 +19,11 @@ function create(req, res) {
     });
 }
 
-function deleteRecipe(req, res, next) {
-    Recipe.findOne({'reviews._id': req.params.id}).then(function(recipe) {
-        const review = recipe.reviews.id(req.params.id);
-        if (!review.user.equals(req.user._id)) return res.redirect(`/recipes/${recipes._id}`);
-        review.remove();
-        recipe.save().then(function() {
-            res.redirect(`/recipes/${recipe._id}`);
-        }).catch(function(err) {
-            return next(err);
+function deleteReview(req, res) {
+    Recipe.findById(req.params.reviewId, function(err, recipe) {
+        recipe.reviews.remove(req.params.id);
+        recipe.save(function(err) {
+            res.redirect(`/reviews/${review._id}`)
         });
     });
 }

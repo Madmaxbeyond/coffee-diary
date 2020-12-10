@@ -1,0 +1,43 @@
+<%- include('../partials/header') %>
+<h2>Edit your coffee diary </h2>
+
+<form id="update-form" action="/recipes/<%= recipe._id %>?_method=PUT" method="POST">
+    <br>
+    <label>
+     <input type="text" name="title" value="<%= recipe.title %>" placeholder="Morning Coffee, New Recipe">
+     <span>Title</span>
+    </label>
+
+    <label>
+    <input type="text" name="brewType" value="<%= recipe.brewType %>" placeholder="AeroPress, Chemex, French Press">
+    <span>Brew Method</span>
+    </label>
+
+    <label>Water Type</label>
+    <input type="text" name="waterType" value="<%= recipe.waterType %>" placeholder="Tap, Bottled, Fiji">
+
+    <label>Water Temperature</label>
+    <input type="text" name="waterTemp" value="<%= recipe.waterTemp %>" placeholder="200">
+
+    <label>Coffee Type</label>
+    <input type="text" name="coffeeType" value="<%= recipe.coffeeType %>" placeholder="Holiday Blend, Costa Rica">
+
+    <label>Coffee Brand</label>
+    <input type="text" name="coffeeBrand" value="<%= recipe.coffeeBrand %>" placeholder="Temple Coffee">
+
+    <label>Grind Type</label>
+    <input type="text" name="grindType" value="<%= recipe.grindType %>" placeholder="Coarse, Medium, Fine">
+
+    <label>Brew Time</label>
+    <input type="text" name="brewTime" value="<%= recipe.brewTime %>" placeholder="3 min, 2 min, 30 seconds">
+    
+    <label>Notes</label>
+    <textarea name="content" value="<%= recipe.notes %>" placeholder="Smooth and rich."></textarea>
+    <br><br>
+    
+    <button class="btn waves-effect waves-light" type="submit" name="action">
+        Update Recipe</button>
+    
+</form>
+
+<%- include('../partials/footer') %>

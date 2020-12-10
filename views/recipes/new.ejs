@@ -2,43 +2,42 @@
 <h2>Dear Coffee Diary, </h2>
 
 <form id="new-form" action="/recipes" method="POST">
-    <label>Title:</label>
-    <input type="text" name="title">
+    <br>
+    <label>
+     <input type="text" name="title" placeholder="Morning Coffee, New Recipe">
+     <span>Title</span>
+    </label>
+
+    <label>
+    <input type="text" name="brewType" placeholder="AeroPress, Chemex, French Press">
+    <span>Brew Method</span>
+    </label>
 
     <label>Water Type</label>
-    <input type="text" name="waterType">
+    <input type="text" name="waterType" placeholder="Tap, Bottled, Fiji">
 
     <label>Water Temperature</label>
-    <input type="text" name="waterTemp">
+    <input type="text" name="waterTemp" placeholder="200">
 
     <label>Coffee Type</label>
-    <input type="text" name="coffeeType">
+    <input type="text" name="coffeeType" placeholder="Holiday Blend, Costa Rica">
 
     <label>Coffee Brand</label>
-    <input type="text" name="coffeeBrand">
+    <input type="text" name="coffeeBrand" placeholder="Temple Coffee">
 
     <label>Grind Type</label>
-    <input type="text" name="grindType">
-    
+    <input type="text" name="grindType" placeholder="Coarse, Medium, Fine">
+
     <label>Brew Time</label>
-    <input type="text" name="brewTime">
-    
-    <label>Brew Method</label>
-    <input type="text" name="brewType">
-    
-    <label>Rating</label>
-    <select name="rating">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-    </select>
+    <input type="text" name="brewTime" placeholder="3 min, 2 min, 30 seconds">
     
     <label>Notes</label>
-    <input type="text" name="notes">
-
-    <input type="submit" value="Add Recipe">
+    <textarea name="content" placeholder="Smooth and rich."></textarea>
+    <br><br>
+    
+    <button class="btn waves-effect waves-light" type="submit" name="action">
+        Add Recipe</button>
+    
 </form>
 
 <%- include('../partials/footer') %>
