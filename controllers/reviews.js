@@ -19,18 +19,18 @@ function create(req, res) {
     });
 }
 
-// function deleteReview(req, res) {
-//     Recipe.findById(req.params.reviewId, function(err, recipe) {
-//         recipe.reviews.remove(req.params.id);
-//         recipe.save(function(err) {
-//             res.redirect(`/reviews/${review._id}`)
-//         });
-//     });
-// }
-
 function deleteReview(req, res) {
-    Recipe.findByIdAndDelete(req.params.reviewId, function(err, deletedReview) {
-        res.redirect(`/recipes/${recipe._id}`);
-    });
+    Recipe.findOne(
+        {'review._id': req.params.id, 'reviews.user': req.user._id},
+        function(err, recipe) {
+            console.log(recipe)
+            if (!recipe || err) return res.redirect(`/recipes/${recipe._id}`);
+            recipe.reviews.remove(req.params.id);
+            recipe.save(function(err) {
+                res.redirect(`/recipes/${recipe._id}`);
+            });
+        }
+    );
 }
+
 
