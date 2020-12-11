@@ -31,7 +31,7 @@
 
 <h4>Reviews</h4>
 <% if (user) { %>
-    <form id="add-review-form" method="POST" action="/<%= recipe._id%>/reviews">
+    <form id="add-review-form" method="POST" action="/recipes/<%= recipe._id %>/reviews">
       <label>Review:</label>
       <textarea name="content"></textarea>
       </select>

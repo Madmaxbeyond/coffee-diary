@@ -36,13 +36,14 @@ function create(req, res) {
 }
 
 function update(req, res) {
-    recipes[req.params.id] = req.body.recipe;
-    res.redirect('/');
+    Recipe.findByIdAndUpdate(req.params.id, req.body, function(err, oldRecipe) {
+        res.redirect(`/recipes/${req.params.id}`);
+    })
 }
 
 function edit(req, res) {
     Recipe.findById(req.params.id, function(err, recipe) {
-        res.render('/recipes/edit', { title: 'Update Recipe', recipe });
+        res.render('recipes/edit', { title: 'Update Recipe', recipe });
     });
 }
 

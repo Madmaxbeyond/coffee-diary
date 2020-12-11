@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const reviewsCtrl = require('../controllers/reviews');
 const recipesCtrl = require('../controllers/recipes');
 
 const isLoggedIn = require('../config/auth');
@@ -12,7 +13,8 @@ router.get('/:id/edit', isLoggedIn, recipesCtrl.edit);
 router.put('/:id', isLoggedIn, recipesCtrl.update);
 router.delete('/:id', recipesCtrl.delete);
 
-
+router.post('/:recipeId/reviews', isLoggedIn, reviewsCtrl.create);
+router.delete('/:reviewId/reviews/delete', isLoggedIn, reviewsCtrl.delete);
 
 
 module.exports = router;
