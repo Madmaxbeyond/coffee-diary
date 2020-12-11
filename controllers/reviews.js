@@ -23,7 +23,7 @@ function deleteReview(req, res) {
     Recipe.findById(req.params.reviewId, function(err, recipe) {
         recipe.reviews.remove(req.params.id);
         recipe.save(function(err) {
-            res.redirect(`/reviews/${review._id}`)
+            res.redirect(`/reviews/${rev._id}/delete`)
         });
     });
 }

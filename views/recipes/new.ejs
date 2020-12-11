@@ -4,35 +4,55 @@
 <form id="new-form" action="/recipes" method="POST">
     <br>
     <label>
-     <input type="text" name="title" placeholder="Morning Coffee, New Recipe">
+     <input type="text" name="title" placeholder="Morning Coffee, New Recipe" required="true">
      <span>Title</span>
     </label>
 
     <label>
-    <input type="text" name="brewType" placeholder="AeroPress, Chemex, French Press">
+    <input type="text" name="brewType" placeholder="AeroPress, Chemex, French Press" required="true">
     <span>Brew Method</span>
     </label>
 
-    <label>Water Type</label>
-    <input type="text" name="waterType" placeholder="Tap, Bottled, Fiji">
-
-    <label>Water Temperature</label>
-    <input type="text" name="waterTemp" placeholder="200">
-
-    <label>Coffee Type</label>
-    <input type="text" name="coffeeType" placeholder="Holiday Blend, Costa Rica">
-
-    <label>Coffee Brand</label>
-    <input type="text" name="coffeeBrand" placeholder="Temple Coffee">
-
-    <label>Grind Type</label>
-    <input type="text" name="grindType" placeholder="Coarse, Medium, Fine">
-
-    <label>Brew Time</label>
-    <input type="text" name="brewTime" placeholder="3 min, 2 min, 30 seconds">
+    <label>
+        <input type="text" name="waterType" placeholder="Tap, Bottled, Fiji">
+        <span>Water Type</span>
+    </label>
     
-    <label>Notes</label>
-    <textarea name="content" placeholder="Smooth and rich."></textarea>
+
+    <label>
+        <input type="text" name="waterTemp" placeholder="200">
+        <span>Water Temperature</span>
+    </label>
+   
+
+    <label>
+        <input type="text" name="coffeeType" placeholder="Holiday Blend, Costa Rica">
+        <span>Coffee Type</span>
+    </label>
+    
+
+    <label>
+        <input type="text" name="coffeeBrand" placeholder="Temple Coffee">
+        <span>Coffee Brand</span>
+    </label>
+    
+
+    <label>
+        <input type="text" name="grindType" placeholder="Coarse, Medium, Fine">
+        <span>Grind Type</span>
+    </label>
+    
+    <label>
+        <input type="text" name="brewTime" placeholder="3 min, 2 min, 30 seconds">
+        <span>Brew Time</span>
+    </label>
+
+    <br><br>
+    <label>
+        <textarea name="content" placeholder="Smooth and rich."></textarea>
+        <span>Notes</span>
+    </label>
+    
     <br><br>
     
     <button class="btn waves-effect waves-light" type="submit" name="action">

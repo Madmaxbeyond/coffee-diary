@@ -10,3 +10,7 @@ a {
 #avatar {
   border-radius: 50%;
 }
+
+#show-page {
+  display: inline;
+}
