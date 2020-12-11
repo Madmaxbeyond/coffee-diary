@@ -21,9 +21,8 @@ function create(req, res) {
 
 function deleteReview(req, res) {
     Recipe.findOne(
-        {'review._id': req.params.id, 'reviews.user': req.user._id},
+        {'reviews._id': req.params.id, 'reviews.user': req.user._id},
         function(err, recipe) {
-            console.log(recipe)
             if (!recipe || err) return res.redirect(`/recipes/${recipe._id}`);
             recipe.reviews.remove(req.params.id);
             recipe.save(function(err) {
@@ -32,5 +31,3 @@ function deleteReview(req, res) {
         }
     );
 }
-
-
