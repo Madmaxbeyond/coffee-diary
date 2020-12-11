@@ -6,6 +6,6 @@ const isLoggedIn = require('../config/auth');
 
 router.post('/recipes/:id/reviews', isLoggedIn, reviewsCtrl.create);
 
-router.delete('/:reviewId/reviews/delete', isLoggedIn, reviewsCtrl.delete);
+router.delete('/recipes/:recipeId/:reviewId', isLoggedIn, reviewsCtrl.delete);
 
 module.exports = router;

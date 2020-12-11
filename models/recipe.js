@@ -13,15 +13,6 @@ const reviewSchema = new Schema ({
     timestamps: true
 });
 
-const noteSchema = new Schema({
-    user: {type: Schema.Types.ObjectId, ref: 'User'},
-    userName: String,
-    content: String
-}, {
-    timestamps: true
-});
-
-
 const recipeSchema = new Schema({
     user: {type: Schema.Types.ObjectId, ref: 'User'},
     userName: String,
@@ -36,7 +27,6 @@ const recipeSchema = new Schema({
     grindType: String,
     brewTime: String,
     brewType: String,
-    notes: [noteSchema],
     reviews: [reviewSchema]
 }, {
     timestamps: true

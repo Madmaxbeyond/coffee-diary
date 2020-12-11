@@ -14,7 +14,7 @@ router.put('/:id', isLoggedIn, recipesCtrl.update);
 router.delete('/:id', recipesCtrl.delete);
 
 router.post('/:recipeId/reviews', isLoggedIn, reviewsCtrl.create);
-router.delete('/:reviewId/reviews/delete', isLoggedIn, reviewsCtrl.delete);
+router.delete('/recipes/:recipeId/:reviewId', isLoggedIn, reviewsCtrl.delete);
 
 
 module.exports = router;
