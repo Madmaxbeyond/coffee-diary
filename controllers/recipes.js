@@ -21,8 +21,9 @@ function index(req, res) {
 }
 
 function allRecipes(req, res) {
+    const query = req.query.include ? {} : {user: {$ne: req.user._id}};
     Recipe.find(
-        {}, 
+        query, 
         function(err, recipes) {
         res.render('recipes/index', { title: 'All Recipes', recipes });
     });
