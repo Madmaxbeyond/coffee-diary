@@ -6,6 +6,7 @@ const recipesCtrl = require('../controllers/recipes');
 const isLoggedIn = require('../config/auth');
 
 router.get('/', recipesCtrl.index);
+router.get('/all', isLoggedIn, recipesCtrl.allRecipes);
 router.get('/new', isLoggedIn, recipesCtrl.new);
 router.get('/:id', isLoggedIn, recipesCtrl.show);
 router.post('/', isLoggedIn, recipesCtrl.create);
