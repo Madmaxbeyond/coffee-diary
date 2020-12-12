@@ -15,7 +15,6 @@ const reviewSchema = new Schema ({
 
 const recipeSchema = new Schema({
     user: {type: Schema.Types.ObjectId, ref: 'User'},
-    userName: String,
     title: {
         type: String,
         default: 'New Coffee Recipe'

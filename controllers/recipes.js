@@ -13,19 +13,17 @@ module.exports = {
 }
 
 function index(req, res) {
-    Recipe.find(
-        {user: req.user._id}, 
-        function(err, recipes) {
+    Recipe.find({user: req.user._id})
+    .populate('user').exec(function(err, recipes) {
         res.render('recipes/index', { title: 'My Recipes', recipes });
     });
 }
 
 function allRecipes(req, res) {
     const query = req.query.include ? {} : {user: {$ne: req.user._id}};
-    Recipe.find(
-        query, 
-        function(err, recipes) {
-        res.render('recipes/index', { title: 'All Recipes', recipes });
+    Recipe.find(query)
+    .populate('user').exec(function(err, recipes) {
+        res.render('recipes/index', { title: 'All Recipes', recipes, includeMy: !!req.query.include });
     });
 }
 
@@ -42,7 +40,6 @@ function newRecipe(req, res) {
 function create(req, res) {
     const recipe = new Recipe(req.body);
     recipe.user = req.user._id;
-    recipe.userName = req.user.name;
     recipe.save(function(err) {
         if (err) return res.redirect('recipes/new');
         res.redirect(`recipes/${recipe._id}`);

@@ -1,8 +1,15 @@
 <%- include('../partials/header') %>
 
+<% if (title !== 'My Recipes' && includeMy ) { %>
+    <a class="btn" href="/recipes/all">Exclude My Recipes</a>
+<% } else if (title !== 'My Recipes' ) { %>
+    <a class="btn" href="/recipes/all?include=true">Include My Recipes</a>
+<% } %>    
+
 <table id="list">
     <thead>
         <tr>
+            <th></th>
             <th>Recipe Name</th>
             <th>Brew Method</th>
             <th>Coffee Type</th>
@@ -12,6 +19,7 @@
     <tbody>
         <% recipes.forEach(function (r) { %>
             <tr>
+                <td><img id="avatar" src="<%= r.user.avatar %>" alt="Avatar"><%= r.user.name %></td>
                 <td><%= r.title %></td>
                 <td><%= r.brewType %></td>
                 <td><%= r.coffeeType %></td>
