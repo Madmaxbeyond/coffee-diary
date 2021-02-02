@@ -26,6 +26,7 @@ const recipeSchema = new Schema({
     grindType: String,
     brewTime: String,
     brewType: String,
+    notes: String,
     reviews: [reviewSchema]
 }, {
     timestamps: true

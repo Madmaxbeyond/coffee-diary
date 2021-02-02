@@ -25,4 +25,4 @@ Whether you're working toward becoming the AeroPress world champion or just want
 - Add login via email 
 - Add a featured recipe section so a new recipe will be featured in the app daily
 - Add elements to encourage user interaction
-- Add My Recipes page for Users to see their own recipes to keep private
+
